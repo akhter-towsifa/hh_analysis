@@ -36,7 +36,6 @@ def get_custom_edges_equal_integral(hist, nbins):
     loop_integral = 0.0
 
     for j in range(1, hist.GetNbinsX()+1):
-        # loop_integral += hist.GetBinContent(j)# * hist.GetBinWidth(j)
 
         bin_content = hist.GetBinContent(j)
         bin_width = hist.GetBinWidth(j)
@@ -54,8 +53,8 @@ def get_custom_edges_equal_integral(hist, nbins):
             break
 
     if len(new_bin_edges) - 1 < nbins:
-        if new_bin_edges[-1] < 1.0:#hist.GetXaxis().GetXmax():
-            new_bin_edges.append(1.0)#hist.GetXaxis().GetXmax())
+        if new_bin_edges[-1] < 1.0:
+            new_bin_edges.append(1.0)
 
     print(f"new bin edges {new_bin_edges}")
     return array.array('d', new_bin_edges)
